@@ -7,6 +7,6 @@ export const typeDefs = `#graphql
   }
 
   type Query {
-    books: [Book]
+    books(title: String): [Book]
   }
 `;
