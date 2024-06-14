@@ -81,15 +81,15 @@ const BookAssignmentView = () => {
           fullWidth value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} sx={{ my: 2 }} />}/>
 
 
-        <Typography variant="h6" component="h2" sx={{ mt: 4 }}>
+        <Typography variant="h6" component="h2" sx={{ my: 4 }}>
           Reading List
         </Typography>
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', }}>
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             {readingList.map((book, i) => (
               
               <Grid item xs={6} lg={3} md={4} key={i}>
-                <img src={ require('./frontend/'.concat(book.coverPhotoURL))} alt='cover' width='100%' max-height='180'/>
+                <img src={ require('./frontend/'.concat(book.coverPhotoURL))} alt='cover' width='100%' max-height='100'/>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <div>
                     <Typography>{book.title}</Typography>
