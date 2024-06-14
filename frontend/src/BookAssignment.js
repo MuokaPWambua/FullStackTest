@@ -11,7 +11,11 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from '@mui/material/Avatar';
 import { gql, useLazyQuery} from '@apollo/client';
+import { styled } from '@mui/system';
 
+const ColoredFab = styled(Fab)(({ theme }) => ({
+  backgroundColor: '#5acccc',
+}));
 const SEARCH_BOOKS = gql`
   query SearchBooks($title: String) {
     books(title: $title) {
@@ -63,13 +67,13 @@ const BookAssignmentView = () => {
                 <Typography variant="h6" component="h2" sx={{ mt: 4,  mr: 2  }}>
                   {option.title}
                 </Typography>
-                <p>{option.author}</p>
+                <Typography color="textSecondary">{option.author}</Typography>
               </div>
 
               </div>
-              <Fab onClick={() => handleAddToReadingList(option)} color="primary" aria-label="add">
-                <AddIcon />
-              </Fab>
+              <ColoredFab onClick={() => handleAddToReadingList(option)} aria-label="add" >
+                <AddIcon sx={{ color: '#fff' }}/>
+              </ColoredFab>
             </li>
           )}
           options={data && data.books.length > 0 ? data.books.map((option, index) =>  ({ ...option, index })) : []}
@@ -88,13 +92,13 @@ const BookAssignmentView = () => {
                 <img src={ require('./frontend/'.concat(book.coverPhotoURL))} alt='cover' width='100%' max-height='180'/>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <div>
-                    <p>{book.title}</p>
-                    <p>{book.author}</p>
+                    <Typography>{book.title}</Typography>
+                    <Typography color="textSecondary">by {book.author}</Typography>
                   </div>
                     
 
                   <IconButton    aria-label="delete"  onClick={() => handleRemoveFromReadingList(book.title)} >
-                    <DeleteIcon />
+                    <DeleteIcon sx={{ color: '#f76434' }}/>
                   </IconButton>
                 </div>
               </Grid>))
