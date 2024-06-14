@@ -9,14 +9,14 @@
         }
       },
       {
-        "src": "backend/index.js",
+        "src": "backend/app.ts",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/graphql",
-        "dest": "/backend/index.js"
+        "dest": "/backend/app.ts"
       },
       {
         "src": "/(.*)",

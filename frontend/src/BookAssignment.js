@@ -55,7 +55,7 @@ const BookAssignmentView = () => {
               <div style={{ display: 'flex', alignItems: 'center' }}>
               <Avatar
                 alt="Remy Sharp"
-                src={'/'.concat(option.coverPhotoURL)}
+                src={ require('./frontend/'.concat(option.coverPhotoURL))}
                 sx={{ width: 100, height: 100, mr: 2 }}
                 variant="square"
               />
@@ -85,7 +85,7 @@ const BookAssignmentView = () => {
             {readingList.map((book, i) => (
               
               <Grid item xs={6} lg={3} md={4} key={i}>
-                <img src={'/'.concat(book.coverPhotoURL)} alt='cover' width='100%' max-height='180'/>
+                <img src={ require('./frontend/'.concat(book.coverPhotoURL))} alt='cover' width='100%' max-height='180'/>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <div>
                     <p>{book.title}</p>
